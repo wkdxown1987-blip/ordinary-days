@@ -1,0 +1,77 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ordinary Days — Personal Journal</title>
+<style>
+:root{color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:#0b0c11;color:#f4f2f6;font-family:Arial,'Malgun Gothic',sans-serif;line-height:1.7}
+a{color:inherit;text-decoration:none}
+header{max-width:1120px;margin:auto;padding:28px 24px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #292632}
+.logo{font-size:20px;font-weight:800;letter-spacing:1px}
+nav{display:flex;gap:25px}
+nav a:hover,.accent{color:#aa8bff}
+main{max-width:1120px;margin:auto;padding:0 24px}
+.hero{padding:115px 0 110px;position:relative;overflow:hidden}
+.hero:after{content:"";position:absolute;right:-110px;top:0;width:450px;height:450px;background:radial-gradient(circle,#6543b055,transparent 70%);pointer-events:none}
+.eyebrow{color:#aa8bff;font-size:12px;letter-spacing:4px;font-weight:bold}
+h1{font-size:clamp(45px,7vw,85px);line-height:1.12;letter-spacing:-3px;margin:20px 0}
+.hero p{color:#a8a5b2;font-size:18px}
+.button{display:inline-block;margin-top:24px;padding:12px 25px;background:#7954d9;border-radius:9px;font-weight:bold;cursor:pointer}
+h2{font-size:27px;margin-bottom:25px}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.card{background:#171820;border:1px solid #302c3b;border-radius:14px;overflow:hidden;cursor:pointer;transition:transform .2s}
+.card:hover{transform:translateY(-5px)}
+.visual{height:155px;background:linear-gradient(135deg,#1c1633,#6944a5,#10121c)}
+.card:nth-child(2) .visual{background:linear-gradient(135deg,#111b30,#514071,#15151f)}
+.card:nth-child(3) .visual{background:linear-gradient(135deg,#151723,#292b4d,#805d93)}
+.card-body{padding:22px}
+.date{color:#aaa5b6;font-size:12px}
+.card h3{font-size:19px;margin:10px 0}
+.card p{color:#aaa6b3;font-size:14px}
+section{padding-bottom:75px}
+.article{max-width:740px;margin:70px auto;min-height:380px}
+.article h1{font-size:clamp(32px,5vw,52px)}
+.article p{color:#c7c4ce}
+.back{color:#aa8bff;cursor:pointer}
+footer{padding:30px;text-align:center;color:#77717f;border-top:1px solid #292632;font-size:13px}
+@media(max-width:700px){header{align-items:flex-start;gap:16px;flex-direction:column}nav{gap:20px}.hero{padding:75px 0}.cards{grid-template-columns:1fr}h1{letter-spacing:-1px}}
+</style>
+</head>
+<body>
+<header>
+<a href="#" class="logo" onclick="show('home')">ORDINARY DAYS<span class="accent">.</span></a>
+<nav>
+<a href="#" onclick="show('home')">Home</a>
+<a href="#" onclick="show('journal')">Journal</a>
+<a href="#" onclick="show('about')">About</a>
+</nav>
+</header>
+<main id="app"></main>
+<footer>© 2026 Ordinary Days. All rights reserved.</footer>
+<script>
+const posts=[
+{title:"첫 번째 기록",date:"November 14, 2026",desc:"Ordinary Days를 시작하며 남기는 첫 번째 이야기.",body:"오늘부터 이곳에 나의 생각과 경험을 기록하려고 한다. 특별한 주제나 규칙 없이, 그날그날 떠오르는 이야기들을 자유롭게 남길 예정이다."},
+{title:"새로운 것을 시작한다는 것",date:"November 12, 2026",desc:"익숙하지 않은 일에 도전하며 드는 생각.",body:"처음부터 모든 것을 완벽하게 할 필요는 없다. 중요한 것은 직접 시도하고 경험하면서 조금씩 발전하는 것이다."},
+{title:"평범한 날들의 가치",date:"November 10, 2026",desc:"일상에서 발견하는 작은 생각과 순간들.",body:"평범해 보이는 하루에도 기억할 만한 순간은 있다. 시간이 지나 돌아봤을 때 이 기록들이 어떤 의미가 될지 궁금하다."}
+];
+const app=document.getElementById("app");
+function cards(){return '<div class="cards">'+posts.map((p,i)=>`<div class="card" onclick="article(${i})"><div class="visual"></div><div class="card-body"><span class="date">${p.date}</span><h3>${p.title}</h3><p>${p.desc}</p></div></div>`).join('')+'</div>'}
+function show(page){
+if(page==="home")app.innerHTML=`<div class="hero"><div class="eyebrow">A PERSONAL JOURNAL</div><h1>Ordinary Days.<br><span class="accent">Extraordinary Thoughts.</span></h1><p>평범한 날들 속에서 발견한 생각과 이야기들.</p><a class="button" onclick="show('journal')">Explore Journal →</a></div><section><h2>Latest Writing</h2>${cards()}</section>`;
+if(page==="journal")app.innerHTML=`<div class="article"><div class="eyebrow">THE JOURNAL</div><h1>All Stories.</h1><p>일상과 생각, 그리고 작은 발견들.</p></div><section>${cards()}</section>`;
+if(page==="about")app.innerHTML=`<div class="article"><div class="eyebrow">ABOUT</div><h1>Ordinary Days.</h1><p>안녕하세요. Ordinary Days는 평범한 일상과 개인적인 생각, 관심사와 새로운 경험을 기록하는 공간입니다.</p><p>특별한 주제에 얽매이지 않고 자유롭게 이야기를 쌓아가려고 합니다.</p></div>`;
+window.scrollTo(0,0)
+}
+function article(i){
+const p=posts[i];
+app.innerHTML=`<div class="article"><a class="back" onclick="show('journal')">← Back to Journal</a><p class="date">${p.date}</p><h1>${p.title}</h1><p>${p.body}</p></div>`;
+window.scrollTo(0,0)
+}
+show('home');
+</script>
+</body>
+</html>
