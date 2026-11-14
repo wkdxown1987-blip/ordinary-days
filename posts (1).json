@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "title": "Ordinary Days, 첫 번째 기록",
+    "date": "2026-11-14",
+    "category": "일상",
+    "description": "평범한 날들의 기록을 시작합니다.",
+    "content": "오늘부터 Ordinary Days에 나의 생각과 경험을 기록하려고 한다.",
+    "image": ""
+  },
+  {
+    "id": 2,
+    "title": "나의 두 번째 이야기",
+    "date": "2026-11-14",
+    "category": "일상",
+    "description": "오늘의 기록을 남깁니다.",
+    "content": "오늘은 나만의 개인 블로그를 만들었다. 앞으로 이곳에 다양한 이야기를 기록할 생각이다.",
+    "image": ""
+  },
+  {
+    "id": 3,
+    "title": "ORDINARY DAYS 테스트",
+    "date": "2026-11-15",
+    "category": "",
+    "description": "나만의 블로그 글쓰기 테스트",
+    "image": "",
+    "content": "오늘은 전용 편집기를 이용해 첫 번째 글을 작성했다."
+  }
+]
