@@ -25,5 +25,14 @@
     "description": "나만의 블로그 글쓰기 테스트",
     "image": "",
     "content": "오늘은 전용 편집기를 이용해 첫 번째 글을 작성했다."
+  },
+  {
+    "id": 4,
+    "title": "사진 테스트",
+    "date": "2026-11-15",
+    "category": "",
+    "description": "",
+    "image": "images/mwgk1bos-e8wfyi-e8c35e5b-185a-43a9-a9d3-79d576807683.png",
+    "content": "ㅇㅇ"
   }
 ]
